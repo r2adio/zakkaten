@@ -23,22 +23,25 @@ export const NavbarSidebar = ({ items, open, onOpenChange }: Props) => {
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetContent side="left" className="p-0 transition-none">
+        {/* header of sidebar */}
         <SheetHeader className="p-4 border-b">
-          <div className="flex items-center">
-            <SheetTitle>Menu</SheetTitle>
-          </div>
+          <SheetTitle>Menu</SheetTitle>
         </SheetHeader>
+
         <ScrollArea className="flex flex-col overflow-y-auto h-full pb-2">
+          {/* all the items `navbarItems` object */}
           {items.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className="w-full text-left p-4 hover:bg-black hover:text-white flex items-center text-base font-medium"
-              onClick={() => onOpenChange(false)}
+              onClick={() => onOpenChange(false)} // selecting an item closes the sidebar
             >
               {item.children}
             </Link>
           ))}
+
+          {/* log-in and start selling */}
           <div className="border-t">
             <Link
               onClick={() => onOpenChange(false)}

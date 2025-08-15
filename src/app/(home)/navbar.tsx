@@ -19,6 +19,7 @@ interface NavbarItemProps {
   isActive?: boolean;
 }
 
+// currently contains only for button
 const NavbarItem = ({ href, children, isActive }: NavbarItemProps) => {
   return (
     <Button
@@ -34,6 +35,7 @@ const NavbarItem = ({ href, children, isActive }: NavbarItemProps) => {
   );
 };
 
+// array of objects, defining diff routes
 const navbarItems = [
   { href: "/", children: "Home" },
   { href: "/about", children: "About" },
@@ -54,12 +56,14 @@ export const Navbar = () => {
         </span>
       </Link>
 
+      {/* navigation sidebar, useState(false) */}
       <NavbarSidebar
         items={navbarItems}
         open={isSidebarOpen}
         onOpenChange={setIsSidebarOpen}
       />
 
+      {/* map over navbarItems, and render NavbarItem component over individual items */}
       <div className="items-center gap-4 hidden lg:flex">
         {navbarItems.map((item) => (
           <NavbarItem
@@ -72,6 +76,7 @@ export const Navbar = () => {
         ))}
       </div>
 
+      {/* Log-in and Star selling buttons for Navbar */}
       <div className="hidden lg:flex">
         <Button
           asChild
@@ -88,6 +93,7 @@ export const Navbar = () => {
         </Button>
       </div>
 
+      {/* button to toggle NavbarSidebar, hidden on lg devices */}
       <div className="flex lg:hidden items-center justify-center">
         <Button
           variant="ghost"
