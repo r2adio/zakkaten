@@ -35,7 +35,7 @@ const NavbarItem = ({ href, children, isActive }: NavbarItemProps) => {
   );
 };
 
-// array of objects, defining diff routes
+// defining diff routes for navbar
 const navbarItems = [
   { href: "/", children: "Home" },
   { href: "/about", children: "About" },
@@ -93,7 +93,7 @@ export const Navbar = () => {
         </Button>
       </div>
 
-      {/* button to toggle NavbarSidebar, hidden on lg devices */}
+      {/* button to toggle NavbarSidebar on sm devices */}
       <div className="flex lg:hidden items-center justify-center">
         <Button
           variant="ghost"
